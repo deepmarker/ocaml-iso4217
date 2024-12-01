@@ -1,0 +1,12 @@
+(library
+ (name iso4217)
+ (public_name iso4217)
+ (preprocess (pps ppx_jane))
+ (libraries base sexplib bin_prot ocplib-json-typed))
+
+(rule
+ (target iso4217_base.ml)
+ (deps list-one.xml)
+ (action
+  (run iso4217-gen %{deps} %{target})))
+
