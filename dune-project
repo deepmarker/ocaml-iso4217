@@ -1,4 +1,4 @@
-(lang dune 3.5)
+(lang dune 3.21)
 
 (name iso4217)
 
@@ -25,7 +25,7 @@
   (base (>= v0.17.1))
   (sexplib (>= v0.17.0))
   (bin_prot (>= v0.17.0))
-  (ocplib-json-typed (>= 0.7.1))
+  (json-data-encoding (>= 1.1.1))
   (pla :build)
   (ezxmlm :build)
  )
