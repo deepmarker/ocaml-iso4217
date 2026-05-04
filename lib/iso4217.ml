@@ -22,9 +22,9 @@ let info_encoding =
 let info_encoding =
   conv
     (fun { name; alpha_code; country; decimals; numeric_code; is_fund } ->
-      name, alpha_code, country, decimals, numeric_code, is_fund)
+       name, alpha_code, country, decimals, numeric_code, is_fund)
     (fun (name, alpha_code, country, decimals, numeric_code, is_fund) ->
-      { name; alpha_code; country; decimals; numeric_code; is_fund })
+       { name; alpha_code; country; decimals; numeric_code; is_fund })
     info_encoding
 ;;
 
