@@ -1,5 +1,6 @@
 (executable
  (public_name iso4217-gen)
  (name main)
- (preprocess (pps pla.ppx))
+ (preprocess
+  (pps pla.ppx))
  (libraries pla ezxmlm))
