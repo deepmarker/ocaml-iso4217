@@ -1,7 +1,7 @@
-include module type of Iso4217_base
-open Json_encoding
+open Bin_prot.Std
+open Base
 
-val info : t -> info list
+type t [@@deriving bin_io, sexp, hash]
+
 val of_alpha_code : string -> t option
 val to_alpha_code : t -> string
-val info_encoding : info encoding

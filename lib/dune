@@ -3,7 +3,7 @@
  (public_name iso4217)
  (preprocess
   (pps ppx_jane))
- (libraries base sexplib bin_prot json-data-encoding))
+ (libraries base bin_prot))
 
 (rule
  (target iso4217_base.ml)
