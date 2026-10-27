@@ -13,8 +13,6 @@
 
 (license ISC)
 
-(documentation https://url/to/documentation)
-
 (package
  (name iso4217)
  (synopsis "ISO4217 (currency codes)")

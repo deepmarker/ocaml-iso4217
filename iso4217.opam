@@ -8,7 +8,6 @@ authors: ["Vincent Bernardoff"]
 license: "ISC"
 tags: ["iso4217" "currency"]
 homepage: "https://github.com/deepmarker/ocaml-iso4217"
-doc: "https://url/to/documentation"
 bug-reports: "https://github.com/deepmarker/ocaml-iso4217/issues"
 depends: [
   "ocaml"
