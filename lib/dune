@@ -1,9 +1,7 @@
 (library
  (name iso4217)
  (public_name iso4217)
- (preprocess
-  (pps ppx_jane))
- (libraries base bin_prot))
+ (libraries base))
 
 (rule
  (target iso4217_base.ml)

@@ -9,17 +9,15 @@ let test_round_trip code =
   assert (String.equal code (Iso4217.to_alpha_code decoded))
 ;;
 
-let test_bin_io_round_trip () =
-  let usd = Iso4217.of_alpha_code "USD" |> Option.value_exn in
-  let encoded = Bin_prot.Utils.bin_dump Iso4217.bin_writer_t usd in
-  let pos_ref = ref 0 in
-  let decoded = Iso4217.bin_read_t encoded ~pos_ref in
-  assert (String.equal "USD" (Iso4217.to_alpha_code decoded))
+let test_rejects_unknown_sexp () =
+  match Iso4217.t_of_sexp (Sexp.Atom "BTC") with
+  | _ -> assert false
+  | exception _ -> ()
 ;;
 
 let () =
   List.iter codes ~f:test_round_trip;
-  test_bin_io_round_trip ();
+  test_rejects_unknown_sexp ();
   assert (Option.is_none (Iso4217.of_alpha_code "BTC"));
   assert (Option.is_none (Iso4217.of_alpha_code "usd"))
 ;;

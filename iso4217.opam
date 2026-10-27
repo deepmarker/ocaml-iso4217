@@ -14,7 +14,6 @@ depends: [
   "ocaml"
   "dune" {>= "3.21"}
   "base" {>= "v0.17.1"}
-  "bin_prot" {>= "v0.17.0"}
   "ezxmlm" {build}
   "odoc" {with-doc}
 ]

@@ -23,7 +23,6 @@
   ocaml
   dune
   (base (>= v0.17.1))
-  (bin_prot (>= v0.17.0))
   (ezxmlm :build)
  )
  (tags (iso4217 currency)))
