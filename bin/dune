@@ -1,4 +1,4 @@
 (executable
  (public_name iso4217-gen)
  (name main)
- (libraries ezxmlm))
+ (libraries xmlm))

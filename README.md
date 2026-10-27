@@ -60,7 +60,7 @@ dune build
 dune test
 ```
 
-Building needs [ezxmlm](https://github.com/mirage/ezxmlm) for the generator; the
+Building needs [xmlm](https://erratique.ch/software/xmlm) for the generator; the
 library itself does not depend on it at run time.
 
 ## License

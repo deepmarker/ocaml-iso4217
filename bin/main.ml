@@ -1,22 +1,23 @@
 open StdLabels
 module String_set = Set.Make (String)
 
-let add_code codes _attrs nodes =
-  let open Ezxmlm in
-  if has_member "Ccy" nodes
-  then member "Ccy" nodes |> data_to_string |> Fun.flip String_set.add codes
-  else codes
+(* The text of every Ccy element. Entries without a currency, such as Antarctica's, have
+   no Ccy element. *)
+let codes input =
+  let rec loop ~in_ccy codes =
+    match Xmlm.input input with
+    | `El_start ((_, "Ccy"), _) -> loop ~in_ccy:true codes
+    | `Data code when in_ccy -> loop ~in_ccy (String_set.add (String.trim code) codes)
+    | `El_end -> if Xmlm.eoi input then codes else loop ~in_ccy:false codes
+    | `Dtd _ | `El_start _ | `Data _ -> loop ~in_ccy codes
+  in
+  loop ~in_ccy:false String_set.empty
 ;;
 
 let generate ic oc =
-  let _dtd, nodes = Ezxmlm.from_channel ic in
-  let codes = ref String_set.empty in
-  Ezxmlm.filter_iter
-    ~tag:"CcyNtry"
-    ~f:(fun attrs nodes -> codes := add_code !codes attrs nodes)
-    nodes;
+  let codes = codes (Xmlm.make_input ~strip:true (`Channel ic)) in
   Format.fprintf oc "let codes = [|";
-  String_set.iter (Format.fprintf oc "%S;") !codes;
+  String_set.iter (Format.fprintf oc "%S;") codes;
   Format.fprintf oc "|]@."
 ;;
 

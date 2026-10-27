@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Read the XML with xmlm instead of ezxmlm in the build-time generator. The
+  generated table is unchanged.
 - Depend on Base only: drop the `bin_io` derivation and the ppx_jane and bin_prot
   dependencies. `equal`, `compare`, `hash` and the sexp converters are written by hand.
 - `t_of_sexp` rejects codes that are not in the ISO 4217 list, instead of accepting any
