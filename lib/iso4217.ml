@@ -8,6 +8,7 @@ let of_alpha_code x =
   |> Option.map ~f:(Array.get codes)
 ;;
 
+let all = Array.to_list codes
 let to_alpha_code t = t
 let equal = String.equal
 let compare = String.compare

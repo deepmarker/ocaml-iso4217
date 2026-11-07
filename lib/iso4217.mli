@@ -4,6 +4,10 @@ open Base
 type t
 
 val of_alpha_code : string -> t option
+
+(** Every code in the list, in alphabetical order. *)
+val all : t list
+
 val to_alpha_code : t -> string
 val equal : t -> t -> bool
 val compare : t -> t -> int

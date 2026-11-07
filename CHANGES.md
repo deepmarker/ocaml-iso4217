@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Add `all`, every code in the list.
 - Read the XML with xmlm instead of ezxmlm in the build-time generator. The
   generated table is unchanged.
 - Depend on Base only: drop the `bin_io` derivation and the ppx_jane and bin_prot
